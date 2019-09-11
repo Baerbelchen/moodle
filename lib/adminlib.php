@@ -772,6 +772,8 @@ class admin_category implements parentable_part_of_admin_tree {
     public $path;
     /** @var mixed Either a string or an array or strings */
     public $visiblepath;
+      /** @var pix icon for gridview */
+    public $pix;
 
     /** @var array fast lookup category cache, all categories of one tree point to one cache */
     protected $category_cache;
@@ -792,11 +794,12 @@ class admin_category implements parentable_part_of_admin_tree {
      * @param string $visiblename The displayed named for this category. Usually obtained through get_string()
      * @param bool $hidden hide category in admin tree block, defaults to false
      */
-    public function __construct($name, $visiblename, $hidden=false) {
+    public function __construct($name, $visiblename, $hidden=false, $pix=null) {
         $this->children    = array();
         $this->name        = $name;
         $this->visiblename = $visiblename;
         $this->hidden      = $hidden;
+         $this->pix         = $pix;
     }
 
     /**
